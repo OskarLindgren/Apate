@@ -1,6 +1,6 @@
-# {name}
+# Apate
 
-#### {name} was made by
+#### Apate was made by
 Love & Code by Oskar Lindgren
 
 ## Star This Repository If You Liked It!
@@ -10,19 +10,18 @@ Love & Code by Oskar Lindgren
 ## Installation 
 
 
-### 📁・Setting up {name}
+### 📁・Setting up Apate
 1. Start off by installing [python](https://www.python.org/)
 2. {pot. change code}
 3. Install all modules in `requierments.txt`
 4. Eun `setup.bat`
-5. {extras}
 
 ### ⚙・Manually Compiling Source Code
 If you prefer to do things on your own run `pip install <every line in requierments.txt>`
 *example: `pip install selenium`*
 then run this command in a terminal or shell:
 ```
-pyinstaller --onefile --clean {--noconsole} --name The_name_you_want main.py
+pyinstaller --onefile --clean --name The_name_you_want main.py
 ```
 3 folders and 1 file will be created, you can delete them all except for the dist folder
 go into the dist folder and there is your exe
